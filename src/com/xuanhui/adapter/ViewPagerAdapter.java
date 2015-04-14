@@ -67,7 +67,7 @@ public class ViewPagerAdapter extends PagerAdapter {
 	public Object instantiateItem(View arg0, int arg1) {
 		((ViewPager) arg0).addView(views.get(arg1), 0);
 		if (arg1 == views.size() - 1) {
-			Button mStartImageButton = (Button) arg0
+			ImageView mStartImageButton = (ImageView) arg0
 					.findViewById(R.id.iv_start_button);
 			mStartImageButton.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {

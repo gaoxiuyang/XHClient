@@ -23,7 +23,7 @@ public class CircularImage extends MaskedImage {
 	public Bitmap createMask() {
 		int i = getWidth();
 		int j = getHeight();
-		Bitmap.Config localConfig = Bitmap.Config.ARGB_8888;
+		Bitmap.Config localConfig = Bitmap.Config.ALPHA_8;
 		Bitmap localBitmap = Bitmap.createBitmap(i, j, localConfig);
 		Canvas localCanvas = new Canvas(localBitmap);
 		Paint localPaint = new Paint(1);

@@ -93,7 +93,7 @@ public class SplashActivity extends Activity {
 //		List<String> splash_ad = new ArrayList<String>();
 //		splash_ad.add("splash_ad");
 		
-		Intent intent = new Intent(SplashActivity.this,MainActivity.class);
+		Intent intent = new Intent(SplashActivity.this,GuideActivity.class);
 //		intent.putExtra("splash_ad",
 //				(Serializable) splash_ad);
 		SplashActivity.this.startActivity(intent);

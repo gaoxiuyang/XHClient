@@ -57,7 +57,7 @@
 				    android:textColorHint="#AAAAAA"  
 				    android:textSize="15dip"  
 				    android:singleLine="true"  
-				    android:hint="请输入用户名"  
+				    android:hint="    请输入用户名"  
 				/>  
      		 </LinearLayout>
      		  <LinearLayout 
@@ -88,7 +88,7 @@
 				    android:textSize="15dip"  
 				    android:singleLine="true"  
 				    android:digits="0123456789"
-				    android:hint="请输入联系电话"  
+				    android:hint="    请输入联系电话"  
 				/>  
      		 </LinearLayout>
      		   <LinearLayout 
@@ -118,7 +118,7 @@
 				    android:textColorHint="#AAAAAA"  
 				    android:textSize="15dip"  
 				    android:singleLine="true"  
-				    android:hint="请输入地址"  
+				    android:hint="    请输入地址"  
 				/>  
      		 </LinearLayout>
      		 <LinearLayout 
@@ -148,7 +148,7 @@
 				    android:textColorHint="#AAAAAA"  
 				    android:textSize="15dip"  
 				    android:singleLine="true"  
-				    android:hint="请输入电子邮箱"  
+				    android:hint="    请输入电子邮箱"  
 				/>  
      		 </LinearLayout>
      		 	 <LinearLayout 
@@ -184,7 +184,7 @@
 				    android:textColorHint="#AAAAAA"  
 				    android:textSize="15dip"  
 				    android:singleLine="true"  
-				    android:hint="故障描述"  
+				    android:hint="    故障描述"  
 				/> 
 					<ImageView 
 					    android:id="@+id/iv_image_mis"

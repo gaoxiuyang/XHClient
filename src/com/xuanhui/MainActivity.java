@@ -1,12 +1,15 @@
 package com.xuanhui;
 import java.io.File;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
@@ -46,7 +49,10 @@ import android.widget.RelativeLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
 import cn.buaa.myweixin.R;
+import cn.buaa.myweixin.R.color;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
@@ -143,7 +149,13 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 		sm.setFadeEnabled(false);
 		sm.setBehindScrollScale(0.25f);
 		sm.setFadeDegree(0.25f);
-		sm.setBackgroundImage(R.drawable.img_frame_background);
+		   Bitmap bitmap=readBitMap(MainActivity.this,R.drawable.img_frame_background);
+		   Drawable drawable =new BitmapDrawable(bitmap);
+		   //sm.setSelectorBitmap(bitmap);
+		sm.setBackground(drawable);
+		
+		
+		
 		sm.setBehindCanvasTransformer(new SlidingMenu.CanvasTransformer() {
 			public void transformCanvas(Canvas canvas, float percentOpen) {
 				float scale = (float) (percentOpen * 0.25 + 0.75);
@@ -500,7 +512,17 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
         myView.setRatio(40f, 60f,"已使用", "未使用");  
         mScrollView = (PullScrollView)view3.findViewById(R.id.scroll_view);
        mHeadImg = (ImageView)view3.findViewById(R.id.background_img1);
-       mHeadImg.setImageResource(R.drawable.scrollview_header);
+       
+       
+       
+   
+    	    
+    	   Bitmap bitmap1=readBitMap(MainActivity.this,R.drawable.scrollview_header);
+    	   mHeadImg.setImageBitmap(bitmap1);
+       
+       
+       
+     //  mHeadImg.setImageResource(R.drawable.a006);
         mScrollView.setHeader(mHeadImg);
         mScrollView.setOnTurnListener(this);
         showTable();
@@ -527,6 +549,16 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 		};
 		mTabPager.setAdapter(mPagerAdapter);
     }
+    
+    public static Bitmap readBitMap(Context context, int resId) {
+ 	   BitmapFactory.Options opt = new BitmapFactory.Options();
+ 	   opt.inPreferredConfig = Bitmap.Config.RGB_565;
+ 	   opt.inPurgeable = true;
+ 	   opt.inInputShareable = true;
+ 	   // 获取资源图片
+ 	   InputStream is = context.getResources().openRawResource(resId);
+ 	   return BitmapFactory.decodeStream(is, null, opt);
+ 	   }
     /**
      * 广告ViewPage
      */

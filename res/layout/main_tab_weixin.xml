@@ -8,11 +8,14 @@
      <ScrollView 
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
+		android:scrollbars="none"
+	
      >
           <LinearLayout 
                  android:layout_width="fill_parent"
                  android:layout_height="wrap_content"
                  android:orientation="vertical"
+                 android:layout_marginBottom="10dp"
                  >
     <RelativeLayout 
 			android:layout_width="fill_parent"
@@ -320,6 +323,7 @@
     <RelativeLayout 
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         >
         <TextView 
             android:id="@+id/tv_shengming"
@@ -333,12 +337,13 @@
            <TextView 
                android:layout_marginLeft="5dp"
                android:layout_marginRight="5dp"
+               android:layout_marginBottom="10dp"
           android:layout_below="@id/tv_shengming"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="       本通道为廊坊市轩慧电视安装服务有限公司客户专用，采用支付宝付款。请在支付前与本网站达成一致。请务必与廊坊市轩慧电视安装服务有限公司确认好订单和货款后，再付款。“标题”、“订单金额”、“付款方”和备注中填入相应的订单信息。"
             android:textColor="#b6b6b6"
-            android:textSize="8dp"
+            android:textSize="10dp"
             
             />
     </RelativeLayout>
