@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#eee"
+    android:orientation="vertical" >
+  <ScrollView 
+      android:id="@+id/contentView"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      >
+     <LinearLayout 
+          android:layout_width="fill_parent"
+          android:layout_height="wrap_content"
+    	  android:orientation="vertical"
+          >
+         
+            <include 
+          android:id="@+id/il_mis"
+    android:layout_margin="5dp"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     layout="@layout/view_mistake" />
+     	
+             <Button
+        android:id="@+id/btn_login11"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/shape_roundbtn_red"
+        android:text="提交"
+        android:textSize="18dp"
+        android:textColor="@android:color/white" />
+     <include 
+         android:id="@+id/il_mistake"
+    android:layout_marginTop="8dp"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     layout="@layout/view_telephone_mistake" />  
+   <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView 
+            android:id="@+id/tv_shengming"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="---------------------承诺---------------------"
+            android:textColor="#b6b6b6"
+            android:textSize="15dp"
+            android:gravity="center_horizontal"
+            />
+           <TextView 
+               android:layout_marginLeft="5dp"
+               android:layout_marginRight="5dp"
+          android:layout_below="@id/tv_shengming"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="       我们承诺:轩慧宽带将以最优质的服务和最快的速度解决您的设备故障,同时因本公司产品故障给您带来的不便,郑重道歉,请您谅解."
+            android:textColor="#b6b6b6"
+            android:textSize="8dp"
+            
+            />
+    </RelativeLayout>             
+      </LinearLayout>
+      
+      
+  </ScrollView>
+			
+
+    
+ </LinearLayout>

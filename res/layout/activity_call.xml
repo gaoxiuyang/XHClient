@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ededef"
+    android:orientation="vertical" >
+
+     <RelativeLayout
+            android:id="@+id/rl_title_call"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#2aa1ec" 
+            >
+            <ImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/titlebar_back" />
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/iv_icon"
+                android:text="投诉建议"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+                </RelativeLayout>
+                
+	<EditText
+         android:id="@+id/txv_feedback1"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/bg_edittext"
+         android:gravity="top"
+         android:hint="请输入您的宝贵意见"
+         android:textColorHint="@color/text_gray"
+         android:maxHeight="250dp"
+         android:maxLength="500"
+         android:textColor="@color/black"
+         android:autoText="true"
+         android:padding="10dip"  
+         android:layout_marginTop="10dp"
+         android:minHeight="150dp" />
+	
+	<Button
+         android:id="@+id/btn_commit1"
+         android:layout_width="match_parent"
+         android:layout_height="40dp"
+         android:layout_alignParentBottom="true"
+         android:layout_marginLeft="10dp"
+         android:layout_marginRight="10dp"
+         android:layout_marginTop="15dp"
+         android:background="@drawable/shape_roundbtn_red"
+         android:text="提  交"
+         android:textColor="@android:color/white" />
+	
+</LinearLayout>

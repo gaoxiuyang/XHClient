@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/view_hot1"
+    android:layout_height="100dp"
+    android:orientation="vertical"
+     android:background="@drawable/bg_edittext"
+     >
+		<TextView 
+		    android:id="@+id/tv_tele"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="客服电话:"
+		    android:paddingTop="5dp"
+		  	android:paddingLeft="15dp"
+		    android:textColor="#012306"
+		    android:textSize="20dp"
+		    
+		    />
+		<LinearLayout 
+		    android:layout_below="@id/tv_tele"
+		    android:layout_width="fill_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		          android:paddingTop="5dp"
+			  	android:paddingLeft="10dp"
+		    >
+		    <ImageView 
+		        android:layout_width="40dp"
+		         android:layout_height="40dp"
+		   		android:layout_marginBottom="5dp"
+		         android:src="@drawable/phone"
+		        />
+		    <LinearLayout 
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:orientation="vertical"
+		    >
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="0316 - 3317606"
+			
+			  	android:paddingLeft="10dp"
+			    android:textColor="#9f0209"
+			    android:textSize="15dp"
+			    />
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="咨询时间： 7 x 24"
+			
+			  	android:paddingLeft="10dp"
+			    android:textColor="#9f0209"
+			    android:textSize="15dp"
+			    android:paddingBottom="5dp"
+			    />
+			</LinearLayout>
+			
+		</LinearLayout>
+		 <Button
+ 	          
+ 	             android:layout_marginTop="5dp"
+ 	             android:layout_marginBottom="5dp"
+		        android:id="@+id/btn_login11"
+		        android:layout_width="80dp"
+		        android:layout_height="35dp"
+		        android:background="@drawable/shape_roundbtn_red"
+		        android:text="我要咨询"
+		        android:textSize="15dp"
+		        android:layout_centerVertical="true"
+		        android:layout_alignParentRight="true"
+		        android:layout_marginRight="25dp"
+		        android:textColor="@android:color/white" />
+ 	</RelativeLayout>
+

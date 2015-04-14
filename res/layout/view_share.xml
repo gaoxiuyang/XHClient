@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/view_hot1"
+    android:layout_height="100dp"
+    android:orientation="vertical"
+     android:background="@drawable/bg_edittext"
+     >
+		<TextView 
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="客服电话:"
+		    android:paddingTop="5dp"
+		  	android:paddingLeft="15dp"
+		    android:textColor="#012306"
+		    android:textSize="20dp"
+		    />
+			<TextView 
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="0316 - 3317606"
+				android:paddingTop="5dp"
+			  	android:paddingLeft="30dp"
+			    android:textColor="#9f0209"
+			    android:textSize="20dp"
+			    />
+		<TextView 
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="咨询时间： 7 x 24"
+		  	android:paddingTop="5dp"
+		  	android:paddingLeft="30dp"
+		    android:textColor="#9f0209"
+		    android:textSize="20dp"
+		    android:paddingBottom="5dp"
+		    />
+ 	</LinearLayout>
+

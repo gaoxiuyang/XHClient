@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="15dp"
+    android:background="@drawable/login_bg"
+     >
+    <TextView
+        android:id="@+id/iv_launcher"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:text="轩慧客户端平台"
+        android:textColor="@android:color/white"
+        android:textSize="25dp"
+         />
+    <RelativeLayout
+        android:id="@+id/rl_account1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_launcher"
+        android:layout_margin="10dp" >
+
+        <ImageView
+            android:id="@+id/iv_avatar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:src="@drawable/login_avatar" />
+
+        <EditText
+            android:id="@+id/et_account1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@id/iv_avatar1"
+            android:background="@null"
+            android:gravity="center"
+            android:hint="@string/hint_input_account"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:textCursorDrawable="@null" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_divider1"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@id/rl_account1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@android:color/white" />
+
+    <RelativeLayout
+        android:id="@+id/rl_pwd1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_divider1"
+        android:layout_margin="10dp" >
+
+        <ImageView
+            android:id="@+id/iv_password1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="5dp"
+            android:src="@drawable/login_pwd" />
+
+        <EditText
+            android:id="@+id/et_password1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_toRightOf="@id/iv_password1"
+            android:background="@null"
+            android:gravity="center"
+            android:hint="@string/hint_input_user_pwd"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:textCursorDrawable="@null" />
+
+    </RelativeLayout>
+
+       <Button
+        android:id="@+id/btn_login1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/rl_pwd1"
+        android:layout_margin="10dp"
+        android:background="#16a0e8"
+        android:text="@string/login"
+        android:textSize="20dp"
+        android:textColor="@android:color/white" />
+
+<TextView
+    android:id="@+id/forget_paw"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/btn_login1"
+    android:layout_alignParentBottom="true"
+    android:layout_marginBottom="10dp"
+    android:text="忘记密码？"
+    android:textColor="#16a0e8"
+   
+    android:textSize="10dp" />
+
+</RelativeLayout>

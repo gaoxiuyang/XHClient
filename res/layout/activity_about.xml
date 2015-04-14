@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ededee" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:id="@+id/rl_title_about"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#2aa1ec" 
+            >
+
+            <ImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/titlebar_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/iv_icon"
+                android:text="关于我们"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+                </RelativeLayout>
+        <LinearLayout
+            android:id="@+id/ll_content"
+            android:layout_below="@id/rl_title_about"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="18.5dp" >
+
+            <RelativeLayout
+                android:id="@+id/rl_currentuser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+            	android:background="@drawable/layout_selector"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_currentuser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="轩慧简介"
+                    android:textColor="#6d6d6d"
+                    android:textSize="18dp" />
+
+                <ImageView
+                    android:id="@+id/iv_arrow_currentuser"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/right_arrow1" />
+
+                <TextView
+                    android:id="@+id/tv_currentuser_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:textSize="16dp"
+                    android:textColor="@android:color/darker_gray"
+                    android:layout_toLeftOf="@id/iv_arrow_currentuser" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_minedata"
+               android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0.5dp"
+                android:clickable="true"
+            	android:background="@drawable/layout_selector"
+                android:gravity="center"
+                android:padding="10dp"  >
+
+                <TextView
+                    android:id="@+id/tv_minedata"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="轩慧轨迹"
+                    android:textColor="#6d6d6d"
+                    android:textSize="18dp" />
+
+                <ImageView
+                    android:id="@+id/iv_arrow_minedata"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/right_arrow1" />
+
+                <ImageView
+                    android:id="@+id/iv_newtag_minedata"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/iv_arrow_minedata"
+                    android:src="@drawable/newtag"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_changepwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0.5dp"
+                android:clickable="true"
+            	android:background="@drawable/layout_selector"
+                android:gravity="center"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_changepwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="公司战略"
+                    android:textColor="#6d6d6d"
+                    android:textSize="18dp" />
+
+                <ImageView
+                    android:id="@+id/iv_arrow_changepwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/right_arrow1" />
+
+                <ImageView
+                    android:id="@+id/iv_newtag_changepwd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/iv_arrow_changepwd"
+                    android:src="@drawable/newtag"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_invite"
+               android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0.5dp"
+                android:clickable="true"
+            	android:background="@drawable/layout_selector"
+                android:gravity="center"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_invite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="旗下公司"
+                    android:textColor="#6d6d6d"
+                    android:textSize="18dp" />
+
+                <ImageView
+                    android:id="@+id/iv_arrow_invite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/right_arrow1" />
+
+                <ImageView
+                    android:id="@+id/iv_newtag_invite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/newtag"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_verupdate"
+               android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0.5dp"
+                android:clickable="true"
+            	android:background="@drawable/layout_selector"
+                android:gravity="center"
+                android:padding="10dp"  >
+
+                <TextView
+                    android:id="@+id/tv_verupdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="企业荣誉"
+                    android:textColor="#6d6d6d"
+                    android:textSize="18dp" />
+
+                <ImageView
+                    android:id="@+id/iv_arrow_verupdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/right_arrow1" />
+
+                <ImageView
+                    android:id="@+id/iv_newtag_verupdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/iv_arrow_verupdate"
+                    android:src="@drawable/newtag"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_feedback"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0.5dp"
+                android:clickable="true"
+            	android:background="@drawable/layout_selector"
+                android:gravity="center"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_feedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="企业文化"
+                    android:textColor="#6d6d6d"
+                    android:textSize="18dp" />
+
+                <ImageView
+                    android:id="@+id/iv_arrow_feedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/right_arrow1" />
+
+                <ImageView
+                    android:id="@+id/iv_newtag_feedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/iv_arrow_feedback"
+                    android:src="@drawable/newtag"
+                    android:visibility="gone" />
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/rl_about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0.5dp"
+                android:clickable="true"
+            	android:background="@drawable/layout_selector"
+                android:gravity="center"
+                android:padding="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_feedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="轩慧动态"
+                    android:textColor="#6d6d6d"
+                    android:textSize="18dp" />
+
+                <ImageView
+                    android:id="@+id/iv_arrow_feedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/right_arrow1" />
+
+                <ImageView
+                    android:id="@+id/iv_newtag_feedback"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_toLeftOf="@id/iv_arrow_feedback"
+                    android:src="@drawable/newtag"
+                    android:visibility="gone" />
+            </RelativeLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

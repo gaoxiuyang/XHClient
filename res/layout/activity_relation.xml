@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="15dp" 
+    android:orientation="vertical"
+    android:background="#ededee"
+    
+    >
+    <RelativeLayout
+            android:id="@+id/rl_title_res"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="#2aa1ec" 
+            >
+
+            <ImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/titlebar_back" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/iv_icon"
+                android:text="联系我们"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+                </RelativeLayout>
+					<LinearLayout 
+					    android:layout_marginTop="10dp"
+					    android:layout_below="@id/rl_title_res"
+					    android:id="@+id/ll_wenzi"
+				    android:layout_width="fill_parent"
+				    android:layout_height="fill_parent"
+				    android:orientation="vertical"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/bg_edittext"
+    >
+<TextView
+    android:id="@+id/tv_a"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentTop="true"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="10dp"
+    android:padding="5dp"
+    android:text="联  系  人：轩慧公司"
+    android:textColor="#646364"
+    android:textSize="15dp" />
+<TextView
+    android:id="@+id/tv_b"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+
+    android:layout_marginLeft="10dp"
+    android:padding="5dp"
+    android:text="联系电话：0316-3315666"
+    android:textColor="#646364"
+    android:textSize="15dp" 
+    />
+<TextView  
+    android:id="@+id/tv_c"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_marginLeft="10dp"
+    android:padding="5dp"
+    android:text="联 系 QQ：495573637 | 605480440 "
+    android:textColor="#646364"
+    android:textSize="15dp" />
+<TextView 
+    android:id="@+id/tv_d"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_marginLeft="10dp"
+    android:padding="5dp"
+    android:text="传真号码：0316-3315666-8031"
+    android:textColor="#646364"
+    android:textSize="15dp" />
+<TextView 
+    android:id="@+id/tv_e"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_marginLeft="10dp"
+    android:padding="5dp"
+    android:text="E - MAIL：sales@xuanhui.com.cn"
+    android:textColor="#646364"
+    android:textSize="15dp" />
+<TextView   
+    android:id="@+id/tv_f"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_marginLeft="10dp"
+    android:padding="5dp"
+    android:text="官方网站：http://www.xuanhui.com.cn"
+    android:textColor="#646364"
+    android:textSize="15dp" />
+<TextView   
+    android:id="@+id/tv_g"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_marginLeft="10dp"
+    android:padding="5dp"
+    android:text="邮政编码：065151"
+    android:textColor="#646364"
+    android:textSize="15dp" />
+<TextView   
+    android:id="@+id/tv_h"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentLeft="true"
+    android:layout_marginLeft="10dp"
+    android:padding="5dp"
+    android:text="公司地址：燕郊经济开发区化大街151号天山国际创业基地32号院"
+    android:textColor="#646364"
+    android:textSize="15dp" />
+<ImageView 
+  	android:layout_below="@id/ll_wenzi"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:src="@drawable/erweima"
+    android:layout_marginTop="10dp"
+    android:layout_centerHorizontal="true"
+    />
+</LinearLayout>
+
+</RelativeLayout>

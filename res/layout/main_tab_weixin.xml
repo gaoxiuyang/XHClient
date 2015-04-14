@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#eee"
+    android:orientation="vertical" >
+       
+     <ScrollView 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+     >
+          <LinearLayout 
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="vertical"
+                 >
+    <RelativeLayout 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"            
+            >
+            <!-- 广告图 -->
+             <com.xuanhui.view.ChildViewPager
+                android:id="@+id/adv_pager"
+                android:layout_width="wrap_content"
+                android:layout_height="170dp" >
+            </com.xuanhui.view.ChildViewPager>
+
+             <LinearLayout
+                 android:layout_width="fill_parent"
+                 android:layout_height="wrap_content"
+                 android:layout_alignBottom="@id/adv_pager"
+                 android:background="#33000000"
+                 android:orientation="vertical"
+                 android:padding="5dip" >
+				<!-- 广告描述 -->
+                 <TextView
+                     android:id="@+id/tv_image_description"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                   	android:layout_marginLeft="5dp"
+                     android:text="第一个引导页面"
+                     android:textColor="@android:color/white"
+                     android:textSize="14sp" />
+				<!-- 点 -->
+                 <LinearLayout
+                     android:id="@+id/ll_points"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                  	 android:layout_marginLeft="5dp"
+                     android:layout_marginTop="5dip"
+                     android:orientation="horizontal" >
+                 </LinearLayout>
+             </LinearLayout>
+  </RelativeLayout>
+ <LinearLayout 
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:layout_gravity="center"
+     android:orientation="horizontal"
+     >
+       <RelativeLayout 
+         android:id="@+id/rl_guangmao"
+         android:layout_width="0dp"
+         android:layout_weight="1"
+    	 android:layout_margin="10dp"
+         android:layout_height="50dp"
+         android:background="@drawable/bg_edittext1"
+        >
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center_vertical"
+               android:layout_centerInParent="true"
+               android:text="光猫"
+               android:textColor="@android:color/white"
+               android:textSize="20dp" />
+     </RelativeLayout>
+           <RelativeLayout 
+                android:id="@+id/rl_100m1"
+               android:layout_width="0dp"
+         android:layout_weight="1"
+ 		android:layout_marginTop="10dp"
+         android:layout_height="50dp"
+         android:background="@drawable/bg_edittext2"
+        >
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center_vertical"
+              android:layout_centerInParent="true"
+               android:text="100M"
+               android:textColor="@android:color/white"
+               android:textSize="20dp" />
+
+     </RelativeLayout>
+               <RelativeLayout 
+                    android:id="@+id/rl_50m"
+             android:layout_width="0dp"
+         android:layout_weight="1"
+    	 android:layout_margin="10dp"
+         android:layout_height="50dp"
+         android:layout_centerInParent="true"
+         android:background="@drawable/bg_edittext3"
+        >
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center_vertical"
+              android:layout_centerInParent="true"
+               android:text="50M"
+               android:textColor="@android:color/white"
+               android:textSize="20dp" />
+
+     </RelativeLayout>
+     <RelativeLayout 
+          android:id="@+id/rl_20m"
+         android:layout_width="0dp"
+         android:layout_weight="1"
+  		 android:layout_marginTop="10dp"
+ 		 android:layout_centerVertical="true"
+         android:layout_height="50dp"
+         android:background="@drawable/bg_edittext4"
+        >
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center_vertical"
+              android:layout_centerInParent="true"
+               android:text="20M"
+               android:textColor="@android:color/white"
+               android:textSize="20dp" />
+
+          </RelativeLayout>
+          <RelativeLayout 
+               android:id="@+id/rl_6m"
+          android:layout_width="0dp"
+          android:layout_height="50dp"
+         android:layout_weight="1"
+    	 android:layout_margin="10dp"
+    	 android:layout_centerVertical="true"
+           android:layout_alignParentRight="true"
+         android:background="@drawable/bg_edittext5"
+        >
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center_vertical"
+              android:layout_centerInParent="true"
+               android:text="6M"
+               android:textColor="@android:color/white"
+               android:textSize="20dp" />
+     </RelativeLayout>
+ </LinearLayout>
+ <!-- Hot商品 -->
+  <include 
+      android:visibility="gone"
+      android:id="@+id/il_guangmao"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     layout="@layout/view_guangmao" />
+   <include 
+         android:visibility="gone"
+       android:id="@+id/il_100m"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     layout="@layout/view_100m1" />
+    <include   android:visibility="gone"
+        android:id="@+id/il_50m"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     layout="@layout/view_50m" />
+     <include   android:visibility="gone"
+         android:id="@+id/il_20m"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     layout="@layout/view_20m" />
+      <include   android:visibility="gone"
+          android:id="@+id/il_6m"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     layout="@layout/view_6m" />
+      
+ <include 
+     android:id="@+id/hot_gangmao"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     layout="@layout/view_hot1" />
+ <include 
+      android:id="@+id/hot_100m"
+    android:layout_marginTop="15dp"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     layout="@layout/view_hot2" />
+ 
+  <include 
+      android:id="@+id/il_tele"
+    android:layout_marginTop="15dp"
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     layout="@layout/view_telephone" />
+ 
+<!-- 联系电话 -->
+
+<LinearLayout 
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    >
+   <RelativeLayout 
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       >
+       <ImageView 
+           android:id="@+id/iv_qq"
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+           android:src="@drawable/qq"
+           android:layout_marginTop="5dp"
+           android:layout_centerHorizontal="true"
+           />
+       <TextView 
+           android:layout_below="@id/iv_qq"
+           android:layout_marginTop="5dp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="QQ"
+           android:textColor="#525252"
+           android:textSize="15dp"
+            android:layout_centerHorizontal="true"
+           />
+   </RelativeLayout>
+     <RelativeLayout 
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       >
+       <ImageView 
+           android:id="@+id/iv_qq"
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+           android:src="@drawable/weixin"
+           android:layout_marginTop="5dp"
+           android:layout_centerHorizontal="true"
+           />
+       <TextView 
+           android:layout_below="@id/iv_qq"
+           android:layout_marginTop="5dp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="微信"
+           android:textColor="#525252"
+           android:textSize="15dp"
+            android:layout_centerHorizontal="true"
+           />
+   </RelativeLayout>
+     <RelativeLayout 
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       >
+       <ImageView 
+           android:id="@+id/iv_qq"
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+           android:src="@drawable/pengyouquan"
+           android:layout_marginTop="5dp"
+           android:layout_centerHorizontal="true"
+           />
+       <TextView 
+           android:layout_below="@id/iv_qq"
+           android:layout_marginTop="5dp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="朋友圈"
+           android:textColor="#525252"
+           android:textSize="15dp"
+            android:layout_centerHorizontal="true"
+           />
+   </RelativeLayout>
+     <RelativeLayout 
+       android:layout_width="0dp"
+       android:layout_height="wrap_content"
+       android:layout_weight="1"
+       >
+       <ImageView 
+           android:id="@+id/iv_qq"
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+           android:src="@drawable/weibo"
+           android:layout_marginTop="5dp"
+           android:layout_centerHorizontal="true"
+           />
+       <TextView 
+           android:layout_below="@id/iv_qq"
+           android:layout_marginTop="5dp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="sina微博"
+           android:textColor="#525252"
+           android:textSize="15dp"
+            android:layout_centerHorizontal="true"
+           />
+   </RelativeLayout>
+    
+    
+</LinearLayout>
+ 
+ 
+ <!-- 声明 -->
+ <LinearLayout 
+     android:layout_width="fill_parent"
+     android:layout_height="wrap_content"
+     android:orientation="vertical"
+     >
+     <!-- 标题 -->
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+        <TextView 
+            android:id="@+id/tv_shengming"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="---------------------声 明---------------------"
+            android:textColor="#b6b6b6"
+            android:textSize="15dp"
+            android:gravity="center_horizontal"
+            />
+           <TextView 
+               android:layout_marginLeft="5dp"
+               android:layout_marginRight="5dp"
+          android:layout_below="@id/tv_shengming"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="       本通道为廊坊市轩慧电视安装服务有限公司客户专用，采用支付宝付款。请在支付前与本网站达成一致。请务必与廊坊市轩慧电视安装服务有限公司确认好订单和货款后，再付款。“标题”、“订单金额”、“付款方”和备注中填入相应的订单信息。"
+            android:textColor="#b6b6b6"
+            android:textSize="8dp"
+            
+            />
+    </RelativeLayout>
+     
+ </LinearLayout>
+ 
+ 
+ </LinearLayout>
+ </ScrollView>
+ 
+ </LinearLayout>
