@@ -36,7 +36,8 @@
         <activity android:name="com.xuanhui.MineActivity"  android:theme="@android:style/Theme.NoTitleBar" />
         <activity android:name="com.xuanhui.OrderActivity"  android:theme="@android:style/Theme.NoTitleBar" />
         <activity android:name="com.xuanhui.ClauseActivity" android:theme="@android:style/Theme.NoTitleBar" />        
-        <activity android:name="com.xuanhui.WebViewActivity" android:theme="@android:style/Theme.NoTitleBar" /> 
+        <activity android:name="com.xuanhui.WebViewActivity" android:theme="@android:style/Theme.NoTitleBar" />
+        <activity android:name="com.xuanhui.AllOrderActivity" android:theme="@android:style/Theme.NoTitleBar" />  
         <activity android:name="LoadingActivity" android:theme="@style/MyDialogStyle" />             
         <activity android:name="MainTopRightDialog" android:theme="@style/MyDialogStyleTop" /> 
     </application>

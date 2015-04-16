@@ -16,6 +16,13 @@
  	    android:padding="5dp"
  	    android:layout_width="wrap_content"
  	    android:layout_height="wrap_content"
+ 	    android:text="您共缴费 ￥5940.00  剩余 ￥3564.58"
+ 	    android:textColor="#6d6d6d"
+ 	    />
+ 		<TextView 
+ 	    android:padding="5dp"
+ 	    android:layout_width="wrap_content"
+ 	    android:layout_height="wrap_content"
  	    android:text="宽带业务使用情况如下"
  	    />
  		 <com.xuanhui.view.MyView

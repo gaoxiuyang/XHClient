@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/view_hot1"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+      android:background="@drawable/layout_selector"
+     android:paddingBottom="15dp"
+     android:paddingTop="5dp"
+     >
+		<ImageView 
+		    android:padding="5dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/nothing"		
+			android:layout_gravity="center"    
+		    />
+		<TextView 
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:text="您还没有任何已完成的订单哦~~,快去处理吧!"
+		    android:layout_gravity="center"
+		    
+		    />
+		
+ 	</LinearLayout>
+

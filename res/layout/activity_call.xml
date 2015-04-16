@@ -37,7 +37,7 @@
          android:layout_height="wrap_content"
          android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:background="@drawable/bg_edittext"
+                    android:background="@drawable/bg_edittext6"
          android:gravity="top"
          android:hint="请输入您的宝贵意见"
          android:textColorHint="@color/text_gray"

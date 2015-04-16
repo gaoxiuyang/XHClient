@@ -37,7 +37,7 @@ public class MenuFragment extends Fragment {
 	private TextView nIvTouXiang;
 	private CircularImage cover_user_photo;
 	private CircularImage cover_user_photo1;
-	private ImageView user_avatar;
+	//private ImageView user_avatar;
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.layout_menu, container, false);
@@ -250,9 +250,9 @@ public class MenuFragment extends Fragment {
 //			LayoutInflater mLi = LayoutInflater.from(getActivity());
 //			View view3 = mLi.inflate(R.layout.main_tab_address, null);
 			View view2 = (View) getActivity().getLayoutInflater().inflate(R.layout.main_tab_friends, null);
-			user_avatar = (ImageView) view2.findViewById(R.id.user_avatar);
+			//user_avatar = (ImageView) view2.findViewById(R.id.user_avatar);
 			cover_user_photo1.setImageBitmap(photo);
-			user_avatar.setImageBitmap(photo);
+			//user_avatar.setImageBitmap(photo);
 		}
 	}
 }

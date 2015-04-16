@@ -49,21 +49,24 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:text="用户名"
+                    android:text="用  户  名"
                     android:layout_marginLeft="20dp"
                     android:textColor="#6d6d6d"
                     android:textSize="18dp" />
 
-                <TextView
-                    android:id="@+id/tv_currentuser_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:text="张三"
-                    android:layout_marginRight="20dp"
-                    android:textColor="#6d6d6d"
-                    android:textSize="18dp"/>
+                <EditText
+                   android:id="@+id/et_order_name"     
+				    android:layout_width="fill_parent"  
+				    android:layout_height="35dip"  
+				    android:layout_toRightOf="@id/tv_currentuser"
+				    android:background="@drawable/bg_edittext7"  
+				    android:layout_marginBottom="5dp"
+				    android:textColorHint="#AAAAAA"  
+				    android:textSize="15dip"  
+				    android:layout_marginLeft="5dp"
+				    android:gravity="center"
+				    android:singleLine="true"  
+				    android:hint="请输入用户名"  />
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/rl_currentuser"
@@ -75,7 +78,7 @@
                 android:padding="10dp" >
 
                 <TextView
-                    android:id="@+id/tv_currentuser"
+                    android:id="@+id/tv_currentuser1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -85,16 +88,19 @@
                     android:textColor="#6d6d6d"
                     android:textSize="18dp" />
 
-                <TextView
-                    android:id="@+id/tv_currentuser_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:text="HUSYSMY1836183"
-                    android:layout_marginRight="20dp"
-                    android:textColor="#6d6d6d"
-                    android:textSize="18dp"/>
+       			 <EditText
+                   android:id="@+id/et_currentuser_name"     
+				    android:layout_width="fill_parent"  
+				    android:layout_height="35dip"  
+				    android:layout_toRightOf="@id/tv_currentuser1"
+				    android:background="@drawable/bg_edittext7"  
+				    android:layout_marginBottom="5dp"
+				    android:textColorHint="#AAAAAA"  
+				    android:textSize="15dip"  
+				    android:layout_marginLeft="5dp"
+				    android:gravity="center"
+				    android:singleLine="true"  
+				    android:hint="请输入轩慧账户"  />
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/rl_currentuser"
@@ -106,7 +112,7 @@
                 android:padding="10dp" >
 
                 <TextView
-                    android:id="@+id/tv_currentuser"
+                    android:id="@+id/tv_currentuser2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -116,16 +122,19 @@
                     android:textColor="#6d6d6d"
                     android:textSize="18dp" />
 
-                <TextView
-                    android:id="@+id/tv_currentuser_name"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:text="15211111111"
-                    android:layout_marginRight="20dp"
-                    android:textColor="#6d6d6d"
-                    android:textSize="18dp"/>
+            <EditText
+                   android:id="@+id/et_currentuser_tele"     
+				    android:layout_width="fill_parent"  
+				    android:layout_height="35dip"  
+				    android:layout_toRightOf="@id/tv_currentuser2"
+				    android:background="@drawable/bg_edittext7"  
+				    android:layout_marginBottom="5dp"
+				    android:textColorHint="#AAAAAA"  
+				    android:textSize="15dip"  
+				    android:layout_marginLeft="5dp"
+				    android:gravity="center"
+				    android:singleLine="true"  
+				    android:hint="请输入联系电话"  />
             </RelativeLayout>
 
             <RelativeLayout
