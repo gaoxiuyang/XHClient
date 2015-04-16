@@ -55,7 +55,6 @@ public class OrderActivity extends Activity{
 		 checkBox = (CheckBox) findViewById(R.id.checkBox1);
 		 tvClause = (TextView) findViewById(R.id.tv_clause);
 		 tvClause.setOnClickListener(new OnClickListener() {
-		
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 //				Intent intent = new Intent(OrderActivity.this, ClauseActivity.class);
