@@ -42,23 +42,25 @@
                 android:layout_height="wrap_content"
                 android:clickable="true"
             	android:background="@drawable/layout_selector"
-                android:padding="10dp" >
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp" 
+                android:paddingRight="10dp"  >
                 <TextView
-                    android:id="@+id/tv_currentuser"
+                    android:id="@+id/tv_currentuser_gg"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:text="用  户  名"
-                    android:layout_marginLeft="20dp"
+                    android:text="轩慧账户"
+                    android:layout_marginLeft="10dp"
                     android:textColor="#6d6d6d"
-                    android:textSize="18dp" />
+                    android:textSize="15dp" />
 
                 <EditText
                    android:id="@+id/et_order_name"     
 				    android:layout_width="fill_parent"  
 				    android:layout_height="35dip"  
-				    android:layout_toRightOf="@id/tv_currentuser"
+				    android:layout_toRightOf="@id/tv_currentuser_gg"
 				    android:background="@drawable/bg_edittext7"  
 				    android:layout_marginBottom="5dp"
 				    android:textColorHint="#AAAAAA"  
@@ -67,6 +69,25 @@
 				    android:gravity="center"
 				    android:singleLine="true"  
 				    android:hint="请输入用户名"  />
+            </RelativeLayout>
+                <RelativeLayout
+                android:id="@+id/rl_currentuser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+            	android:background="@drawable/layout_selector"
+                 >
+
+                <TextView
+                    android:id="@+id/tv_currentuser1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                   android:layout_centerInParent="true"
+                    android:layout_centerVertical="true"
+                    android:text="  "
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#f26d4f"
+                    android:textSize="10dp" />
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/rl_currentuser"
@@ -83,10 +104,10 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
-                    android:text="轩慧账户"
-                    android:layout_marginLeft="20dp"
+                    android:text="用  户  名"
+                    android:layout_marginLeft="10dp"
                     android:textColor="#6d6d6d"
-                    android:textSize="18dp" />
+                    android:textSize="15dp" />
 
        			 <EditText
                    android:id="@+id/et_currentuser_name"     
@@ -118,9 +139,9 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:text="联系电话"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:textColor="#6d6d6d"
-                    android:textSize="18dp" />
+                    android:textSize="15dp" />
 
             <EditText
                    android:id="@+id/et_currentuser_tele"     
@@ -153,20 +174,20 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:text="订单号"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:textColor="#6d6d6d"
-                    android:textSize="18dp" />
+                    android:textSize="15dp" />
 
                 <TextView
-                    android:id="@+id/tv_currentuser_name"
+                    android:id="@+id/tv_currentuser_orderid"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
-                    android:text="TD1839201123"
+                    android:text="TD1539201123"
                     android:layout_marginRight="20dp"
                     android:textColor="#6d6d6d"
-                    android:textSize="18dp"/>
+                    android:textSize="15dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/rl_currentuser"
@@ -184,12 +205,12 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:text="宽带类型"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:textColor="#6d6d6d"
-                    android:textSize="18dp" />
+                    android:textSize="15dp" />
 
                 <TextView
-                    android:id="@+id/tv_currentuser_name"
+                    android:id="@+id/tv_currentuser_ywname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -197,7 +218,7 @@
                     android:text="100M/年"
                     android:layout_marginRight="20dp"
                     android:textColor="#6d6d6d"
-                    android:textSize="18dp"/>
+                    android:textSize="15dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/rl_currentuser"
@@ -215,12 +236,12 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:text="付款金额"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:textColor="#6d6d6d"
-                    android:textSize="18dp" />
+                    android:textSize="15dp" />
 
                 <TextView
-                    android:id="@+id/tv_currentuser_name"
+                    android:id="@+id/tv_currentuser_money"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
@@ -228,7 +249,7 @@
                     android:text="￥1980.00"
                     android:layout_marginRight="20dp"
                     android:textColor="#6d6d6d"
-                    android:textSize="18dp"/>
+                    android:textSize="15dp"/>
             </RelativeLayout>
             <RelativeLayout
                 android:id="@+id/rl_currentuser"
@@ -246,9 +267,9 @@
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     android:text="收款单位"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginLeft="10dp"
                     android:textColor="#6d6d6d"
-                    android:textSize="18dp" />
+                    android:textSize="15dp" />
 
                 <TextView
                     android:id="@+id/tv_currentuser_name"
@@ -283,7 +304,7 @@
 
             <TextView
                 android:id="@+id/tv_clause"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:layout_alignParentLeft="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -302,7 +323,7 @@
         android:layout_marginRight="10dp"
         android:background="@drawable/shape_roundbtn_red"
         android:text="提交订单"
-        android:textSize="18dp"
+        android:textSize="15dp"
         android:textColor="@android:color/white" />
         </LinearLayout>
 

@@ -28,8 +28,8 @@
                 android:padding="10dp" >
                 <ImageView 
                     android:id="@+id/iv_kuandai"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/kaidan"
                     />
                 <TextView
@@ -38,10 +38,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="8dp"
                     android:text="我的宽带"
                     android:textColor="#6d6d6d"
-                    android:textSize="18dp" />
+                    android:textSize="15dp" />
 
                 <ImageView
                     android:id="@+id/iv_arrow_currentuser"
@@ -57,7 +57,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"
-                    android:textSize="16dp"
+                    android:textSize="11dp"
                     android:textColor="@android:color/darker_gray"
                     android:layout_toLeftOf="@id/iv_arrow_currentuser" />
             </RelativeLayout>
@@ -74,8 +74,8 @@
 
                  <ImageView 
                     android:id="@+id/iv_tv"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/tv"
                     />
                 <TextView
@@ -83,11 +83,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@+id/iv_tv"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_centerVertical="true"
                     android:text="我的有线"
                     android:textColor="#6d6d6d"
-                    android:textSize="18dp" />
+                    android:textSize="15dp" />
 
                 <ImageView
                     android:id="@+id/iv_arrow_minedata"
@@ -120,8 +120,8 @@
 
                   <ImageView 
                     android:id="@+id/iv_jf"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/jifen"
                     />
                 <TextView
@@ -129,11 +129,11 @@
                     android:layout_toRightOf="@id/iv_jf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                  	android:layout_marginLeft="5dp"
+                  	android:layout_marginLeft="8dp"
                     android:layout_centerVertical="true"
                     android:text="我的积分"
                     android:textColor="#6d6d6d"
-                    android:textSize="18dp" />
+                    android:textSize="15dp" />
 
                 <ImageView
                     android:id="@+id/iv_arrow_changepwd"
@@ -166,8 +166,8 @@
 
                  <ImageView 
                     android:id="@+id/iv_hd"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/huodong"
                     />
                 <TextView
@@ -175,11 +175,11 @@
                     android:layout_toRightOf="@id/iv_hd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_centerVertical="true"
                     android:text="我的活动"
                     android:textColor="#6d6d6d"
-                    android:textSize="18dp" />
+                    android:textSize="15dp" />
 
                 <ImageView
                     android:id="@+id/iv_arrow_invite"
@@ -212,8 +212,8 @@
 
                  <ImageView 
                     android:id="@+id/iv_dd"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/order"
                     />
                 <TextView
@@ -221,11 +221,11 @@
                     android:layout_toRightOf="@id/iv_dd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_centerVertical="true"
                     android:text="我的订单"
                     android:textColor="#6d6d6d"
-                    android:textSize="18dp" />
+                    android:textSize="15dp" />
 
          
                 <ImageView
@@ -277,11 +277,12 @@
 						android:layout_gravity="center"                      
                         />
                     <TextView 
+                        android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:text="待付款"
-                        android:textSize="15dp"
+                        android:textSize="12dp"
                         android:textColor="#6d6d6d"
                         />
                     <LinearLayout 
@@ -309,8 +310,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
                         android:text="待安装"
-                        android:textSize="15dp"
+                        android:textSize="12dp"
                         android:textColor="#6d6d6d"
                         />
                      <LinearLayout 
@@ -338,8 +340,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
                         android:text="已完成"
-                        android:textSize="15dp"
+                        android:textSize="12dp"
                         android:textColor="#6d6d6d"
                         />
                      <LinearLayout 

@@ -7,6 +7,7 @@ import com.xuanhui.LoginActivity;
 import com.xuanhui.MainActivity;
 import com.xuanhui.MineActivity;
 import com.xuanhui.RelationActivity;
+import com.xuanhui.controller.MysqlDemo;
 import com.xuanhui.util.Constant;
 import com.xuanhui.view.CircularImage;
 
@@ -110,6 +111,9 @@ public class MenuFragment extends Fragment {
 				nRlMine.setVisibility(view.VISIBLE);
 				nLLLine.setVisibility(view.VISIBLE);
 				nRlOut.setVisibility(view.VISIBLE);
+				
+//				MysqlDemo mysqlDemo = new MysqlDemo();
+//				mysqlDemo.inquireName();
 				nIvTouXiang.setText("уехЩ");
 				
 			}

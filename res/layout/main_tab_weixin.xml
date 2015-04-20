@@ -233,7 +233,7 @@
            android:layout_height="wrap_content"
            android:text="QQ"
            android:textColor="#525252"
-           android:textSize="15dp"
+           android:textSize="12dp"
             android:layout_centerHorizontal="true"
            />
    </RelativeLayout>
@@ -257,7 +257,7 @@
            android:layout_height="wrap_content"
            android:text="微信"
            android:textColor="#525252"
-           android:textSize="15dp"
+           android:textSize="12dp"
             android:layout_centerHorizontal="true"
            />
    </RelativeLayout>
@@ -281,7 +281,7 @@
            android:layout_height="wrap_content"
            android:text="朋友圈"
            android:textColor="#525252"
-           android:textSize="15dp"
+           android:textSize="12dp"
             android:layout_centerHorizontal="true"
            />
    </RelativeLayout>
@@ -305,7 +305,7 @@
            android:layout_height="wrap_content"
            android:text="sina微博"
            android:textColor="#525252"
-           android:textSize="15dp"
+           android:textSize="12dp"
             android:layout_centerHorizontal="true"
            />
    </RelativeLayout>

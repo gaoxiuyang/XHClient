@@ -60,13 +60,13 @@
  	        android:orientation="vertical"
  	        >
  	        <TextView
- 	            android:paddingTop="15dp"
+ 	            android:paddingTop="17dp"
  	            android:layout_width="wrap_content"
  	            android:layout_height="wrap_content"
  	            android:layout_gravity="center_horizontal"
  	            android:text="光纤到户，上网必备"
  	            android:textColor="#6d6d6d"
- 	            android:textSize="20dp"
+ 	            android:textSize="17dp"
  	            />
  	        <LinearLayout 
  	            android:layout_marginTop="20dp"
@@ -87,7 +87,7 @@
  	                android:text="￥190/个"
  	                android:layout_centerVertical="true"
  	                android:textColor="#6d6d6d"
- 	                android:textSize="18dp"
+ 	                android:textSize="17dp"
  	                />
  	          <Button
  	            android:layout_marginRight="20dp"
@@ -98,7 +98,7 @@
 		        android:layout_height="35dp"
 		        android:background="@drawable/shape_roundbtn_blue"
 		        android:text="购  买"
-		        android:textSize="18dp"
+		        android:textSize="17dp"
 		        android:layout_centerVertical="true"
 		        android:textColor="@android:color/white" />
  	        </RelativeLayout>

@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/layout_selector"
-     android:paddingBottom="15dp"
+     android:paddingBottom="12dp"
      android:paddingTop="5dp"
      >
 		<LinearLayout 
@@ -25,15 +25,15 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:text="订单编号:"
-		        android:textSize="15dp"
+		        android:textSize="12dp"
 		        android:textColor="#303030"
 		        />
 		     <TextView 
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:paddingLeft="5dp"
-		        android:text="TD139287015"
-		        android:textSize="15dp"
+		        android:text="TD129287012"
+		        android:textSize="12dp"
 		        android:textColor="#8b8b8b"
 		        />
 		    </LinearLayout>
@@ -47,7 +47,7 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:text="轩慧账号:"
-		        android:textSize="15dp"
+		        android:textSize="12dp"
 		        android:textColor="#303030"
 		        />
 		     <TextView 
@@ -55,7 +55,7 @@
 		        android:layout_height="wrap_content"
 		        android:paddingLeft="5dp"
 		        android:text="TSIQ3821"
-		        android:textSize="15dp"
+		        android:textSize="12dp"
 		        android:textColor="#8b8b8b"
 		        />
 		    </LinearLayout>
@@ -70,7 +70,7 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:text="订单业务:"
-		        android:textSize="15dp"
+		        android:textSize="12dp"
 		        android:textColor="#303030"
 		        />
 		     <TextView 
@@ -78,8 +78,8 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:paddingLeft="5dp"
-		        android:text="100M  一年"
-		        android:textSize="15dp"
+		        android:text="120M  一年"
+		        android:textSize="12dp"
 		        android:textColor="#8b8b8b"
 		        />
 		     <TextView
@@ -91,7 +91,7 @@
                     android:layout_centerVertical="true"
                     android:text="电话催装"
                     android:textColor="#6d6d6d"
-                    android:textSize="15dp" />
+                    android:textSize="12dp" />
 		      <ImageView
                     android:id="@+id/iv_arroww"
                     android:layout_width="wrap_content"
@@ -99,7 +99,6 @@
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/right_arrow1" />
-                       
 		    </RelativeLayout>
 		     <LinearLayout 
 		        android:layout_width="wrap_content"
@@ -111,7 +110,7 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:text="订单金额:"
-		        android:textSize="15dp"
+		        android:textSize="12dp"
 		        android:textColor="#303030"
 		        />
 		     <TextView 
@@ -119,7 +118,7 @@
 		        android:layout_height="wrap_content"
 		        android:paddingLeft="5dp"
 		        android:text="￥1980"
-		        android:textSize="15dp"
+		        android:textSize="12dp"
 		        android:textColor="#8b8b8b"
 		        />
 		    </LinearLayout>
@@ -132,8 +131,8 @@
 		    <TextView 
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
-		        android:text="2015/7/25"
-		        android:textSize="15dp"
+		        android:text="2012/7/25"
+		        android:textSize="12dp"
 		        android:textColor="#8b8b8b"
 		        />
 		     <TextView 
@@ -141,12 +140,9 @@
 		        android:layout_height="wrap_content"
 		        android:paddingLeft="5dp"
 		        android:text="04:22:16"
-		        android:textSize="15dp"
+		        android:textSize="12dp"
 		        android:textColor="#8b8b8b"
 		        />
 		    </LinearLayout>
 		</LinearLayout>
-		
-		
  	</LinearLayout>
-

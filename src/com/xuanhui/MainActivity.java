@@ -1,6 +1,8 @@
 package com.xuanhui;
 import java.io.File;
+
 import java.io.InputStream;
+import java.nio.channels.SelectableChannel;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +10,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -33,6 +37,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+
 import android.view.View.OnFocusChangeListener;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -59,6 +64,7 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 import com.xuanhui.Fragment.MenuFragment;
 import com.xuanhui.helper.Utility;
+import com.xuanhui.sqlite.DatabaseHelper;
 import com.xuanhui.util.Constant;
 import com.xuanhui.view.ChildViewPager;
 import com.xuanhui.view.CircularImage;
@@ -66,72 +72,37 @@ import com.xuanhui.view.MyView;
 import com.xuanhui.view.PullScrollView;
 public class MainActivity extends SlidingFragmentActivity implements PullScrollView.OnTurnListener,OnPageChangeListener {
 	public static MainActivity instance = null;
+	private LinearLayout llPoints,llWeFuKuan,llWeiAnZhuang,llYiWanCheng,llPayOk,llAnZhuangOk,llWanChengOk,mBtnCamera,mBtnAlbums,mBtnCancel,mClose,mCloseBtn;
+	private TextView tvDescription,tv_all_order,tv_qufukuan1,tv_qufukuan2,tv_tele_cuian;
 	private Fragment mContent;
-	private ViewPager mTabPager;	
-	private ImageView mTab1,mTab2,mTab3;
-	private int zero = 0;// 动画图片偏移量
-	private int currIndex = 0;// 当前页卡编号
-	private int one;//单个水平动画位移
-	private int two;
-	private PopupWindow mPopupWindow;
-	private View mPopupAddPhotos;
-	private LinearLayout mBtnCamera;
-	private LinearLayout mBtnAlbums;
-	private LinearLayout mBtnCancel;
-	private int three;
-	private LinearLayout mClose;
-    private LinearLayout mCloseBtn;
-    //private MyView myView;  
-   // private RelativeLayout mRlLoginNo,mRlLoginOK;
-    private View layout;	
+	private ViewPager mTabPager,advPager;	
+	private ImageView mTab1,mTab2,mTab3,ivImageMis;
+	private int zero = 0,currIndex = 0,one,two,three,previousSelectPosition = 0;// 动画图片偏移量
+	private PopupWindow mPopupWindow,menuWindow;
 	private boolean menu_display = false;
-	private PopupWindow menuWindow;
 	private LayoutInflater inflater;
-    //private PullScrollView mScrollView;
-   // private ImageView mHeadImg;
-    private ViewPager advPager;
-	private Button mButCall;
 	private SlidingMenu sm;
-//	private Button mBuLoginOk;
 	public CircularImage cover_user_photo1;
-	//private ImageView mUserAvatar;
-	private ImageView ivImageMis;
-	private View view2;
-	private RelativeLayout mRl100M,mRlGuangmao,mRl50M,mRl20M,mRl6M;
-	private View ilG;
-	private View il100;
-	private View il50;
-	private View il20;
-	private View il6;
-	private View ilH100;
-	private View ilguangmao;
-	private View view1;
-	private Button btn_hot_gm_pag, btn_gunagmao_pag,btn_hot_100_pag,btn_100_pag,btn_50_pag_1,btn_50_pag_2,btn_50_pag_3,btn_20_pag_1,btn_20_pag_2,btn_6_pag_1,btn_6_pag_2,btn_6_pag_3;
-	private View view3;
+	private RelativeLayout mRl100M,mRlGuangmao,mRl50M,mRl20M,mRl6M,rl_kuandai,rl_huodong,rl_youxain,rl_jifen;
+	private View ilG,il100,il50,il20,il6,ilH100,ilguangmao,view1,view3,mPopupAddPhotos,view2,layout,ilWeiFuKuan,ilWeiAnHuang,ilYiWanCheng;
+	private Button btn_hot_gm_pag, btn_gunagmao_pag,btn_hot_100_pag,btn_100_pag,btn_50_pag_1,btn_50_pag_2,btn_50_pag_3,btn_20_pag_1,btn_20_pag_2,btn_6_pag_1,btn_6_pag_2,btn_6_pag_3,mButCall;
 	private ScrollView contentView;
     private boolean isFirst = true;
     boolean isExit; 
-    /**
-	 * ViewPage
-	 */
-	 private List<ImageView> imageViewList;  
-	 private TextView tvDescription;  
-	 private LinearLayout llPoints;
-	 private String[] imageDescriptions;  
-	 private int previousSelectPosition = 0;  
-	 private ChildViewPager mViewPager;  
-	 private boolean isLoop = true; 
-	 private Handler handler = new Handler() {  
+	private List<ImageView> imageViewList;  
+	private String[] imageDescriptions;  
+	private ChildViewPager mViewPager;  
+	private boolean isLoop = true; 
+	private Handler handler = new Handler() {  
 	        @Override  
 	        public void handleMessage(Message msg) {  
-           super.handleMessage(msg);  
+            super.handleMessage(msg);  
 	            mViewPager.setCurrentItem(mViewPager.getCurrentItem() + 1);  
-	       }  
+	        }  
 	 };  
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_weixin);
-      
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN|WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
          //启动activity时不自动弹出软键盘
         instance = this;
@@ -172,11 +143,7 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 		sm.setFadeDegree(0.25f);
 		   Bitmap bitmap=readBitMap(MainActivity.this,R.drawable.img_frame_background);
 		   Drawable drawable =new BitmapDrawable(bitmap);
-		   //sm.setSelectorBitmap(bitmap);
 		sm.setBackground(drawable);
-		
-		
-		
 		sm.setBehindCanvasTransformer(new SlidingMenu.CanvasTransformer() {
 			public void transformCanvas(Canvas canvas, float percentOpen) {
 				float scale = (float) (percentOpen * 0.25 + 0.75);
@@ -204,9 +171,6 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
         one = displayWidth/4; //设置水平动画平移大小
         two = one*2;
         three = one*3;
-        
-        
-        
         LayoutInflater mLi = LayoutInflater.from(this);
         view1 = mLi.inflate(R.layout.main_tab_weixin, null);
         mRl100M = (RelativeLayout) view1.findViewById(R.id.rl_100m1);
@@ -232,141 +196,74 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
         btn_6_pag_1 = (Button) il6.findViewById(R.id.btn_6_pag_1);
         btn_6_pag_2 = (Button) il6.findViewById(R.id.btn_6_pag_2);
         btn_6_pag_3 = (Button) il6.findViewById(R.id.btn_6_pag_3);
-        
         btn_hot_gm_pag = (Button) ilguangmao.findViewById(R.id.btn_hot_gm_pag);
-        btn_gunagmao_pag.setOnClickListener(new OnClickListener() {
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-//				if (Constant.login == 0) {
-//					Toast.makeText(MainActivity.this, "您尚未登录,请登录后再试", 1000).show();
-//				}else if (Constant.login == 1) {
-					Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-					MainActivity.this.startActivity(intent);
-				//}
-			}
-		});
-        btn_hot_gm_pag.setOnClickListener(new OnClickListener() {
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-//				if (Constant.login == 0) {
-//					Toast.makeText(MainActivity.this, "您尚未登录,请登录后再试", 1000).show();
-//				}else if (Constant.login == 1) {
-					Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-					MainActivity.this.startActivity(intent);
-				//}
-			}
-		});
-        btn_hot_100_pag.setOnClickListener(new OnClickListener() {
-    			public void onClick(View arg0) {
-    				// TODO Auto-generated method stub
-//    				if (Constant.login == 0) {
-//    					Toast.makeText(MainActivity.this, "您尚未登录,请登录后再试", 1000).show();
-//    				}else if (Constant.login == 1) {
-    					Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-    					MainActivity.this.startActivity(intent);
-    				//}
-    			}
-    		});
-        btn_50_pag_1.setOnClickListener(new OnClickListener() {
-    			public void onClick(View arg0) {
-    				// TODO Auto-generated method stub
-//    				if (Constant.login == 0) {
-//    					Toast.makeText(MainActivity.this, "您尚未登录,请登录后再试", 1000).show();
-//    				}else if (Constant.login == 1) {
-    					Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-    					MainActivity.this.startActivity(intent);
-    				//}
-    			}
-    		});
-        btn_50_pag_2.setOnClickListener(new OnClickListener() {
-    			public void onClick(View arg0) {
-    				// TODO Auto-generated method stub
-//    				if (Constant.login == 0) {
-//    					Toast.makeText(MainActivity.this, "您尚未登录,请登录后再试", 1000).show();
-//    				}else if (Constant.login == 1) {
-    					Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-    					MainActivity.this.startActivity(intent);
-    				//}
-    			}
-    		});
-        btn_50_pag_3.setOnClickListener(new OnClickListener() {
-    			public void onClick(View arg0) {
-    				// TODO Auto-generated method stub
-//    				if (Constant.login == 0) {
-//    					Toast.makeText(MainActivity.this, "您尚未登录,请登录后再试", 1000).show();
-//    				}else if (Constant.login == 1) {
-    					Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-    					MainActivity.this.startActivity(intent);
-    				//}
-    			}
-    		});
-        btn_100_pag.setOnClickListener(new OnClickListener() {
-    			public void onClick(View arg0) {
-    				// TODO Auto-generated method stub
-//    				if (Constant.login == 0) {
-//    					Toast.makeText(MainActivity.this, "您尚未登录,请登录后再试", 1000).show();
-//    				}else if (Constant.login == 1) {
-    					Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-    					MainActivity.this.startActivity(intent);
-    				//}
-    			}
-    		});
-        btn_20_pag_1.setOnClickListener(new OnClickListener() {
-    			public void onClick(View arg0) {
-    				// TODO Auto-generated method stub
-//    				if (Constant.login == 0) {
-//    					Toast.makeText(MainActivity.this, "您尚未登录,请登录后再试", 1000).show();
-//    				}else if (Constant.login == 1) {
-    					Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-    					MainActivity.this.startActivity(intent);
-    				//}
-    			}
-    		});
-        btn_20_pag_2.setOnClickListener(new OnClickListener() {
-    			public void onClick(View arg0) {
-    				// TODO Auto-generated method stub
-//    				if (Constant.login == 0) {
-//    					Toast.makeText(MainActivity.this, "您尚未登录,请登录后再试", 1000).show();
-//    				}else if (Constant.login == 1) {
-    					Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-    					MainActivity.this.startActivity(intent);
-    				//}
-    			}
-    		});
-        btn_6_pag_1.setOnClickListener(new OnClickListener() {
-    			public void onClick(View arg0) {
-    				// TODO Auto-generated method stub
-//    				if (Constant.login == 0) {
-//    					Toast.makeText(MainActivity.this, "您尚未登录,请登录后再试", 1000).show();
-//    				}else if (Constant.login == 1) {
-    					Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-    					MainActivity.this.startActivity(intent);
-    				//}
-    			}
-    		});
-        btn_6_pag_2.setOnClickListener(new OnClickListener() {
-    			public void onClick(View arg0) {
-    				// TODO Auto-generated method stub
-//    				if (Constant.login == 0) {
-//    					Toast.makeText(MainActivity.this, "您尚未登录,请登录后再试", 1000).show();
-//    				}else if (Constant.login == 1) {
-    					Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-    					MainActivity.this.startActivity(intent);
-    				//}
-    			}
-    		});
-        btn_6_pag_3.setOnClickListener(new OnClickListener() {
-    			public void onClick(View arg0) {
-    				// TODO Auto-generated method stub
-//    				if (Constant.login == 0) {
-//    					Toast.makeText(MainActivity.this, "您尚未登录,请登录后再试", 1000).show();
-//    				}else if (Constant.login == 1) {
-    					Intent intent = new Intent(MainActivity.this, OrderActivity.class);
-    					MainActivity.this.startActivity(intent);
-    				//}
-    			}
-    		});
-        
+        //进入订单界面
+        OnClickListener onClick = new OnClickListener(){
+            public void onClick(View v) {
+                switch (v.getId()) {
+                  case R.id.btn_gunagmao_pag: 
+                	  Intent intent = new Intent(MainActivity.this, OrderActivity.class);
+  					  MainActivity.this.startActivity(intent);
+                  break;
+                  case R.id.btn_hot_100_pag: 
+                	  Intent intent1 = new Intent(MainActivity.this, OrderActivity.class);
+  					  MainActivity.this.startActivity(intent1);
+                  break;
+                  case R.id.btn_100_pag: 
+                	  Intent intent2 = new Intent(MainActivity.this, OrderActivity.class);
+  					  MainActivity.this.startActivity(intent2);
+                	                  break;
+                  case R.id.btn_50_pag_1: 
+                	  Intent intent3 = new Intent(MainActivity.this, OrderActivity.class);
+  					  MainActivity.this.startActivity(intent3);
+                	                  break;
+                  case R.id.btn_50_pag_2: 
+                	  Intent intent4 = new Intent(MainActivity.this, OrderActivity.class);
+  					  MainActivity.this.startActivity(intent4);
+                	                  break;
+                  case R.id.btn_50_pag_3: 
+                	  Intent intent5 = new Intent(MainActivity.this, OrderActivity.class);
+  					  MainActivity.this.startActivity(intent5);
+                	                  break;
+                  case R.id.btn_20_pag_1: 
+                	  Intent intent6 = new Intent(MainActivity.this, OrderActivity.class);
+  					  MainActivity.this.startActivity(intent6);
+                	                  break;
+                  case R.id.btn_20_pag_2: 
+                	  Intent intent7 = new Intent(MainActivity.this, OrderActivity.class);
+  					  MainActivity.this.startActivity(intent7);
+                	                  break;
+                  case R.id.btn_6_pag_1: 
+                	  Intent intent8 = new Intent(MainActivity.this, OrderActivity.class);
+  					  MainActivity.this.startActivity(intent8);
+                	                  break;
+                  case R.id.btn_6_pag_2: 
+                	  Intent intent9 = new Intent(MainActivity.this, OrderActivity.class);
+  					  MainActivity.this.startActivity(intent9);
+                	                  break;
+                  case R.id.btn_6_pag_3: 
+                	  Intent intent0 = new Intent(MainActivity.this, OrderActivity.class);
+  					  MainActivity.this.startActivity(intent0);
+                	                  break;
+                  case R.id.btn_hot_gm_pag: 
+                	  Intent intent11 = new Intent(MainActivity.this, OrderActivity.class);
+  					  MainActivity.this.startActivity(intent11);
+                	                  break;
+               }
+            }
+        };
+        btn_gunagmao_pag.setOnClickListener(onClick);
+        btn_hot_100_pag.setOnClickListener(onClick);
+        btn_100_pag.setOnClickListener(onClick);
+        btn_50_pag_1.setOnClickListener(onClick);
+        btn_50_pag_2.setOnClickListener(onClick);
+        btn_50_pag_3.setOnClickListener(onClick);
+        btn_20_pag_1.setOnClickListener(onClick);
+        btn_20_pag_2.setOnClickListener(onClick);
+        btn_6_pag_1.setOnClickListener(onClick);
+        btn_6_pag_2.setOnClickListener(onClick);
+        btn_6_pag_3.setOnClickListener(onClick);
+        btn_hot_gm_pag.setOnClickListener(onClick);
         mRl100M.setOnClickListener(new OnClickListener() {
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
@@ -427,7 +324,6 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 				ilG.setVisibility(view1.GONE);
 			}
 		});
-        
         View ilTele = view1.findViewById(R.id.il_tele);
         mViewPager = (ChildViewPager)view1.findViewById(R.id.adv_pager);
 	      tvDescription = (TextView)view1.findViewById(R.id.tv_image_description);  
@@ -445,7 +341,6 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 			}
 		});
         view2 = mLi.inflate(R.layout.main_tab_address, null);
-        
         View ilMistake = view2.findViewById(R.id.il_mistake);
         contentView = (ScrollView) view2.findViewById(R.id.contentView);
         View ilMis = view2.findViewById(R.id.il_mis);
@@ -454,8 +349,6 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
         final EditText etTelNum = (EditText) ilMis.findViewById(R.id.et_tel_num);
         final EditText etMail = (EditText)ilMis.findViewById(R.id.et_mail);
         final EditText etMisDes = (EditText)ilMis.findViewById(R.id.et_mis_des);
-       
-        
         etAddress.setOnFocusChangeListener(this.onFocusAutoClearHintListener);
         etName.setOnFocusChangeListener(this.onFocusAutoClearHintListener);
         etTelNum.setOnFocusChangeListener(this.onFocusAutoClearHintListener);
@@ -474,12 +367,7 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 				// TODO Auto-generated method stub
 				String check = "^(\\d{11})$|^(\\d{3,5}[-]?\\d{6,8})$"; 
 				//^((13[0-9])|(15[^4,\\D])|(18[0,5-9]))\\d{8}$
-				
-				// String bb = etMail.getText().toString();
 				 Boolean b = etTelNum.getText().toString().matches(check);
-//				 if (Constant.login == 0) {
-//					Toast.makeText(MainActivity.this, "请您先登录,再提交报修单", 1000).show();
-//				}else if (Constant.login == 1) {
 					if (TextUtils.isEmpty(etAddress.getText())) {
 						Toast.makeText(MainActivity.this, "地址为空，请输入后重试", Toast.LENGTH_SHORT).show();
 					}else if (TextUtils.isEmpty(etName.getText())) {
@@ -497,7 +385,6 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 						etMisDes.setText("");
 					}
 				}
-			//}
 		});
         Button mButLioginView = (Button)ilMistake.findViewById(R.id.btn_login2);
         mButLioginView.setOnClickListener(new OnClickListener() {
@@ -508,17 +395,14 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 			}
 		});
         view3 = mLi.inflate(R.layout.main_tab_friends, null);
-       
         tv_all_order = (TextView) view3.findViewById(R.id.tv_all_order);
         tv_all_order.setOnClickListener(new OnClickListener() {
-			
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent(MainActivity.this, AllOrderActivity.class);
     	    	MainActivity.this.startActivity(intent);
 			}
 		});
-        
         rl_kuandai = (RelativeLayout) view3.findViewById(R.id.rl_kuandai);
         rl_youxain = (RelativeLayout) view3.findViewById(R.id.rl_youxain);
         rl_jifen = (RelativeLayout) view3.findViewById(R.id.rl_jifen);
@@ -555,21 +439,18 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 			}
 		});
         rl_youxain.setOnClickListener(new OnClickListener() {
-			
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				Toast.makeText(MainActivity.this, "该功能尚未开发,敬请期待", 1000).show();
 			}
 		});
         rl_jifen.setOnClickListener(new OnClickListener() {
-			
     			public void onClick(View arg0) {
     				// TODO Auto-generated method stub
     				Toast.makeText(MainActivity.this, "该功能尚未开发,敬请期待", 1000).show();
     			}
     		});
         rl_huodong.setOnClickListener(new OnClickListener() {
-			
     			public void onClick(View arg0) {
     				// TODO Auto-generated method stub
     				Toast.makeText(MainActivity.this, "该功能尚未开发,敬请期待", 1000).show();
@@ -599,10 +480,7 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 				}
 			}
 		});
-        
-        
         llWeFuKuan.setOnClickListener(new OnClickListener() {
-			
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
 				llPayOk.setBackgroundColor(Color.parseColor("#16a0e8"));
@@ -614,7 +492,6 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 			}
 		});
         llWeiAnZhuang.setOnClickListener(new OnClickListener() {
-			
      			public void onClick(View arg0) {
      				// TODO Auto-generated method stub
      				llAnZhuangOk.setBackgroundColor(Color.parseColor("#16a0e8"));
@@ -626,7 +503,6 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
      			}
      		});
         llYiWanCheng.setOnClickListener(new OnClickListener() {
-			
      			public void onClick(View arg0) {
      				// TODO Auto-generated method stub
      				llWanChengOk.setBackgroundColor(Color.parseColor("#16a0e8"));
@@ -637,7 +513,6 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
     				ilWeiFuKuan.setVisibility(view3.GONE);
      			}
      		});
-        
        //每个页面的view数据
         final ArrayList<View> views = new ArrayList<View>();
         views.add(view1);
@@ -828,7 +703,8 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 			mTabPager.setCurrentItem(index);
 		}
 	};
-	 /* 页卡切换监听(原作者:D.Winter)
+	 /**
+	  *  页卡切换监听
 	 */
 	public class MyOnPageChangeListener implements OnPageChangeListener {
 		public void onPageSelected(int arg0) {
@@ -878,17 +754,60 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 					animation = new TranslateAnimation(zero, two, 0, 0);
 					mTab1.setImageDrawable(getResources().getDrawable(R.drawable.tab_weixin_normal));
 					getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
+					SelectOrder();
 				} else if (currIndex == 1) {
 					animation = new TranslateAnimation(one, two, 0, 0);
 					mTab2.setImageDrawable(getResources().getDrawable(R.drawable.tab_address_normal));
 					getSlidingMenu().setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN);
-					
+					SelectOrder();
 				}
 				break;
 			}
 			currIndex = arg0;
 			animation.setFillAfter(true);// True:图片停在动画结束位置
 			animation.setDuration(150);
+		}
+	/**
+	 * View3获取sqlite中的订单数据	
+	 */
+	private void SelectOrder() {
+			// TODO Auto-generated method stub
+				String id = null;  
+		        String name = null;  
+		        String xhnum = null;
+		        String tele = null;
+		        String type = null;
+		        String pay = null;
+		        //创建DatabaseHelper对象  
+		        DatabaseHelper dbHelper = new DatabaseHelper(MainActivity.this,  
+		                "xh_order_db", 2);  
+		        // 得到一个只读的SQLiteDatabase对象  
+		        SQLiteDatabase sqliteDatabase = dbHelper.getReadableDatabase();  
+		        // 调用SQLiteDatabase对象的query方法进行查询，返回一个Cursor对象：由数据库查询返回的结果集对象  
+		        // 第一个参数String：表名  
+		        // 第二个参数String[]:要查询的列名  
+		        // 第三个参数String：查询条件  
+		        // 第四个参数String[]：查询条件的参数  
+		        // 第五个参数String:对查询的结果进行分组  
+		        // 第六个参数String：对分组的结果进行限制  
+		        // 第七个参数String：对查询的结果进行排序  
+		        Cursor cursor = sqliteDatabase.query("orders", new String[] { "id","name","xhnum","tele","type","pay"}, "id=?", new String[] { "TD1839201123" },null, null, null);  
+		        // 将光标移动到下一行，从而判断该结果集是否还有下一条数据，如果有则返回true，没有则返回false  
+		        while (cursor.moveToNext()) {  
+		            id = cursor.getString(cursor.getColumnIndex("id"));  
+		            name = cursor.getString(cursor.getColumnIndex("name")); 
+		            xhnum = cursor.getString(cursor.getColumnIndex("xhnum")); 
+		            tele = cursor.getString(cursor.getColumnIndex("tele")); 
+		            type = cursor.getString(cursor.getColumnIndex("type")); 
+		            pay = cursor.getString(cursor.getColumnIndex("pay")); 
+		            System.out.println("-------------select------------");  
+			        System.out.println("id: "+id);  
+			        System.out.println("name: "+name);
+			        System.out.println("xhnum: "+xhnum);  
+			        System.out.println("tele: "+tele);  
+			        System.out.println("type: "+type);  
+			        System.out.println("pay: "+pay);
+		        }  
 		}
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
 			}
@@ -926,7 +845,6 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
             isExit = false;  
         }  
     };
-	
 	public void onTurn() {
 		// TODO Auto-generated method stub
 	}
@@ -979,7 +897,6 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 					}
 				}).show();
 	}
-	
 	/**
 	 * EditText的hint属性自动消失
 	 */
@@ -988,33 +905,22 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 		EditText textView = (EditText) v;
 		String hint;
 		if (hasFocus) {
-		hint = textView.getHint().toString();
-		textView.setTag(hint);
-		textView.setHint("");
-		} else {
-		hint = textView.getTag().toString();
-		textView.setHint(hint);
-		}
-		}
+			hint = textView.getHint().toString();
+			textView.setTag(hint);
+			textView.setHint("");
+			} else {
+				hint = textView.getTag().toString();
+				textView.setHint(hint);
+			}
+			}
 		};
-	private LinearLayout llWeFuKuan,llWeiAnZhuang,llYiWanCheng,llPayOk,llAnZhuangOk,llWanChengOk;
-	private View ilWeiFuKuan;
-	private View ilWeiAnHuang;
-	private View ilYiWanCheng;
-	private TextView tv_all_order;
-	private RelativeLayout rl_kuandai;
-	private RelativeLayout rl_youxain;
-	private RelativeLayout rl_jifen;
-	private RelativeLayout rl_huodong;
-	private TextView tv_qufukuan1;
-	private TextView tv_qufukuan2;
-	private TextView tv_tele_cuian;
-	
+		/**
+		 * 保存照片结果
+		 */
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		switch (requestCode) {
 		// 如果是直接从相册获取
-		
 		case 1:
 			startPhotoZoom(data.getData());
 			break;
@@ -1032,7 +938,6 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 			break;
 		default:
 			break;
-
 		}
 		super.onActivityResult(requestCode, resultCode, data);
 	}
@@ -1045,10 +950,8 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 		intent.setDataAndType(uri, "image/*");
 		//下面这个crop=true是设置在开启的Intent中设置显示的VIEW可裁剪
 		intent.putExtra("crop", "true");
-		// aspectX aspectY 是宽高的比例
 		intent.putExtra("aspectX", 1);
 		intent.putExtra("aspectY", 1);
-		// outputX outputY 是裁剪图片宽高
 		intent.putExtra("outputX", 150);
 		intent.putExtra("outputY", 150);
 		intent.putExtra("return-data", true);
@@ -1062,5 +965,4 @@ public class MainActivity extends SlidingFragmentActivity implements PullScrollV
 			ivImageMis.setImageBitmap(photo);
 		}
 	}
-	
 }

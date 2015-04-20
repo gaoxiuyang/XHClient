@@ -41,7 +41,7 @@ public class LoginActivity extends Activity{
 				if (TextUtils.isEmpty(mEtAccount.getText())) {
 					Toast.makeText(LoginActivity.this, "用户名为空，请输入后重试", Toast.LENGTH_SHORT).show();
 				}else if (TextUtils.isEmpty(mEtPwd.getText())) {
-					Toast.makeText(LoginActivity.this, "密码为空，请输入后重�?", Toast.LENGTH_SHORT).show();
+					Toast.makeText(LoginActivity.this, "密码为空，请输入后重?", Toast.LENGTH_SHORT).show();
 				}else {
 					Intent intent = new Intent(LoginActivity.this, MainActivity.class);
 					LoginActivity.this.startActivity(intent);
